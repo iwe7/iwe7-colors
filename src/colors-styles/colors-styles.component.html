@@ -1,0 +1,56 @@
+<a class="github-fork-ribbon" href="https://github.com/iwe7/iwe7-colors" title="Fork me on GitHub">Fork me on GitHub</a>
+<div class="header-container">
+  <div class="header-bg" [style.background-color]="(props|async)?.colors.hex"></div>
+  <header class="header">
+    <div class="intro-wrap">
+      <div class="intro">
+        <h1>iwe7-colors</h1>
+        <p>A Collection of Color Pickers for angular from Sketch, Photoshop, Chrome, Github, Twitter, Material Design & more</p>
+        <p>
+          <a href="https://github.com/xiaokaike/vue-color">参考vue-color</a>
+        </p>
+      </div>
+    </div>
+    <div class="demo-item">
+      <chrome-picker [props]="props"></chrome-picker>
+      <h6>Chrome</h6>
+    </div>
+  </header>
+</div>
+
+<div class="demo-container">
+  <div class="demo-list">
+    <div class="demo-item">
+      <sketch-picker [props]="props"></sketch-picker>
+      <h6>Sketch</h6>
+    </div>
+    <div class="demo-item">
+      <photoshop-picker [props]="props"></photoshop-picker>
+      <h6>Photoshop</h6>
+    </div>
+  </div>
+  <div class="demo-list">
+    <div class="demo-item">
+      <material-picker [props]="props"></material-picker>
+      <h6>Material</h6>
+    </div>
+    <div class="demo-item">
+      <slider-picker [props]="props"></slider-picker>
+      <h6>Slider</h6>
+    </div>
+  </div>
+  <div class="demo-list">
+    <div class="demo-item">
+      <compact-picker [props]="props"></compact-picker>
+      <h6>Compact</h6>
+      <br>
+      <br>
+      <grayscale-picker [props]="props"></grayscale-picker>
+      <h6>Grayscale</h6>
+    </div>
+    <div class="demo-item">
+      <swatches-picker [props]="props"></swatches-picker>
+      <h6>Swatches</h6>
+    </div>
+  </div>
+</div>

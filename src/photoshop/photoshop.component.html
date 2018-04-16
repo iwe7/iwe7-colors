@@ -1,0 +1,44 @@
+<div class="vc-photoshop" [class.vc-photoshop__disable-fields]="disableFields">
+  <div class="vc-ps-head">{{head}}</div>
+  <div class="vc-ps-body">
+    <div class="vc-ps-saturation-wrap">
+      <saturation [props]="props"></saturation>
+    </div>
+    <div class="vc-ps-hue-wrap">
+      <hue [props]="props" direction="vertical">
+        <div class="vc-ps-hue-pointer">
+          <i class="vc-ps-hue-pointer--left"></i>
+          <i class="vc-ps-hue-pointer--right"></i>
+        </div>
+      </hue>
+    </div>
+    <div class="vc-ps-controls" [class.vc-ps-controls__disable-fields]="disableFields">
+      <div class="vc-ps-previews">
+        <div class="vc-ps-previews__label">new</div>
+        <div class="vc-ps-previews__swatches">
+          <div class="vc-ps-previews__pr-color" [style.background-color]="(props|async)?.colors.hex"></div>
+          <div class="vc-ps-previews__pr-color" [style.background-color]="currentColor" (click)="clickCurrentColor()"></div>
+        </div>
+        <div class="vc-ps-previews__label">current</div>
+      </div>
+      <div class="vc-ps-actions" *ngIf="!disableFields">
+        <div class="vc-ps-ac-btn" (click)="handleAccept()">确定</div>
+        <div class="vc-ps-ac-btn" (click)="handleCancel()">取消</div>
+        <div class="vc-ps-fields">
+          <!-- hsla -->
+          <ed-in label="h" desc="°" [props]="props"></ed-in>
+          <ed-in label="s" desc="%" [props]="props"></ed-in>
+          <ed-in label="v" desc="%" [props]="props"></ed-in>
+          <div class="vc-ps-fields__divider"></div>
+          <!-- rgba -->
+          <ed-in label="r" [props]="props"></ed-in>
+          <ed-in label="g" [props]="props"></ed-in>
+          <ed-in label="b" [props]="props"></ed-in>
+          <div class="vc-ps-fields__divider"></div>
+          <!-- hex -->
+          <ed-in label="#" class="vc-ps-fields__hex" [props]="props"></ed-in>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

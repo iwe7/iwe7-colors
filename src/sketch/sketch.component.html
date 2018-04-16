@@ -1,0 +1,41 @@
+<div class="vc-sketch" [class.vc-sketch__disable-alpha]="disableAlpha">
+  <div class="vc-sketch-saturation-wrap">
+    <saturation [props]="props"></saturation>
+  </div>
+  <div class="vc-sketch-controls">
+    <div class="vc-sketch-sliders">
+      <div class="vc-sketch-hue-wrap">
+        <hue [props]="props"></hue>
+      </div>
+      <div class="vc-sketch-alpha-wrap" *ngIf="!disableAlpha">
+        <alpha [props]="props"></alpha>
+      </div>
+    </div>
+    <div class="vc-sketch-color-wrap">
+      <div class="vc-sketch-active-color" [style.background]="activeColor"></div>
+      <checkboard></checkboard>
+    </div>
+  </div>
+  <div class="vc-sketch-field" *ngIf="!disableFields">
+    <!-- rgba -->
+    <div class="vc-sketch-field--double">
+      <ed-in label="hex" [props]="props"></ed-in>
+    </div>
+    <div class="vc-sketch-field--single">
+      <ed-in label="r" [props]="props"></ed-in>
+    </div>
+    <div class="vc-sketch-field--single">
+      <ed-in label="g" [props]="props"></ed-in>
+    </div>
+    <div class="vc-sketch-field--single">
+      <ed-in label="b" [props]="props"></ed-in>
+    </div>
+    <div class="vc-sketch-field--single" *ngIf="!disableAlpha">
+      <ed-in label="a" [props]="props"></ed-in>
+    </div>
+  </div>
+  <div class="vc-sketch-presets">
+    <div class="vc-sketch-presets-color" *ngFor="let c of presetColors" [style.background-color]="c" (click)="handlePreset(c)">
+    </div>
+  </div>
+</div>

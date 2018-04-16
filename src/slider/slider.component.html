@@ -1,0 +1,10 @@
+<div class="vc-slider">
+  <div class="vc-slider-hue-warp">
+    <hue [props]="props"></hue>
+  </div>
+  <div class="vc-slider-swatches">
+    <div class="vc-slider-swatch" *ngFor="let offset of swatches;index as index;" (click)="handleSwClick(index, offset)">
+      <div class="vc-slider-swatch-picker" [class.vc-slider-swatch-picker--active]="offset == activeOffset" [style.background-color]="'hsl(' + (props|async)?.colors.hsl.h + ', 50%, ' + (offset * 100) + '%)'"></div>
+    </div>
+  </div>
+</div>

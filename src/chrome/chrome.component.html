@@ -1,0 +1,70 @@
+<div class="vc-chrome" [class.vc-chrome__disable-alpha]="disableAlpha">
+  <div class="vc-chrome-saturation-wrap">
+    <saturation [props]="props"></saturation>
+  </div>
+  <div class="vc-chrome-body">
+    <div class="vc-chrome-controls">
+      <div class="vc-chrome-color-wrap">
+        <div class="vc-chrome-active-color" [style.background-color]="activeColor"></div>
+        <checkboard *ngIf="!disableAlpha"></checkboard>
+      </div>
+      <div class="vc-chrome-sliders">
+        <div class="vc-chrome-hue-wrap">
+          <hue [props]="props"></hue>
+        </div>
+        <div class="vc-chrome-alpha-wrap" v-if="!disableAlpha">
+          <alpha [props]="props"></alpha>
+        </div>
+      </div>
+    </div>
+    <div class="vc-chrome-fields-wrap" *ngIf="!disableFields">
+      <div class="vc-chrome-fields" *ngIf="fieldsIndex === 0">
+        <!-- hex -->
+        <div class="vc-chrome-field">
+          <ed-in label="hex" [props]="props"></ed-in>
+        </div>
+      </div>
+      <div class="vc-chrome-fields" *ngIf="fieldsIndex === 1">
+        <!-- rgba -->
+        <div class="vc-chrome-field">
+          <ed-in label="r" [props]="props"></ed-in>
+        </div>
+        <div class="vc-chrome-field">
+          <ed-in label="g" [props]="props"></ed-in>
+        </div>
+        <div class="vc-chrome-field">
+          <ed-in label="b" [props]="props"></ed-in>
+        </div>
+        <div class="vc-chrome-field" *ngIf="!disableAlpha">
+          <ed-in label="a" [props]="props"></ed-in>
+        </div>
+      </div>
+      <div class="vc-chrome-fields" *ngIf="fieldsIndex === 2">
+        <!-- hsla -->
+        <div class="vc-chrome-field">
+          <ed-in label="h" [props]="props"></ed-in>
+        </div>
+        <div class="vc-chrome-field">
+          <ed-in label="s" [props]="props"></ed-in>
+        </div>
+        <div class="vc-chrome-field">
+          <ed-in label="l" [props]="props"></ed-in>
+        </div>
+        <div class="vc-chrome-field" *ngIf="!disableAlpha">
+          <ed-in label="a" [props]="props"></ed-in>
+        </div>
+      </div>
+      <!-- btn -->
+      <div class="vc-chrome-toggle-btn">
+        <div class="vc-chrome-toggle-icon" (click)="switch()">
+          <svg style="width:24px; height:24px" viewBox="0 0 24 24">
+            <path fill="#333" d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
+            />
+          </svg>
+        </div>
+        <div class="vc-chrome-toggle-icon-highlight" *ngIf="highlight"></div>
+      </div>
+      <!-- btn -->
+    </div>
+  </div>
+</div>
